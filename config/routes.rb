@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   
+  get 'popular-article', to: 'articles#show', defaults: { id: '1' }
+  get '/artikelen', to: redirect('/articles')
+  get '/artikel/:id', to: redirect('articles/%{id}')
+  
   Rails.application.routes.draw do
 	  resources :articles do
 			resources :comments
